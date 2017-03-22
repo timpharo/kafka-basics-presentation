@@ -20,7 +20,11 @@ import {
   Image,
   Code,
   CodePane,
-  Link
+  Link,
+  Appear,
+  Layout,
+  Fit,
+  Fill
 } from "spectacle";
 
 // Import image preloader util
@@ -68,70 +72,126 @@ export default class Presentation extends React.Component {
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
             Kafka
           </Heading>
-          <Text margin="10px 0 0" textColor="tertiary" size={1} fit bold>
-            like a bit off a shovel
-          </Text>
+          <Appear fid="1">
+            <Text margin="10px 0 0" textColor="tertiary" size={1} fit bold>
+              like a bit off a shovel
+            </Text>
+          </Appear>
         </Slide>
-        <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={5} textColor="secondary">What is Kafka?</Heading>
-          <Text size={6} textColor="secondary">Standard text</Text>
+        <Slide transition={["fade"]} bgColor="black">
+          <Heading size={2} textColor="tertiary">What is Kafka?</Heading>
+          <BlockQuote>
+            <Quote>Apache Kafka™ is a distributed streaming platform. What exactly does that mean?</Quote>
+            <Cite>Apache Kafka™ Homepage</Cite>
+          </BlockQuote>
         </Slide>
+
+        <Slide transition={["fade"]} bgColor="black">
+          <Heading size={2} textColor="tertiary">Again..... What is Kafka???</Heading>
+          <List textColor="primary">
+            <ListItem><Text textColor="primary">It is a system that lets you publish and subscribe to streams of records. In this respect it is similar to a message queue or enterprise messaging system.</Text></ListItem>
+            <ListItem><Text textColor="primary">It is a system that lets you store streams of records in a fault-tolerant way.</Text></ListItem>
+            <ListItem><Text textColor="primary">It is a system that lets you process streams of records as they occur (Real time).</Text></ListItem>
+          </List>
+
+        </Slide>
+
         <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={5} textColor="secondary">What is Kafka good for?</Heading>
-          <Text size={6} textColor="secondary">Kafka is good at real time data propogation and storage</Text>
-          <Text size={6} textColor="secondary">Kafka when used as the data backbone of a company allows future adaptations by abstracting communications between application into a more reactive style approach</Text>
+          <Heading size={2} textColor="secondary" fit>What is Kafka good for?</Heading>
+          <Fit>
+            <BlockQuote size={8} textColor="primary">Kafka is good at real time data propogation and storage</BlockQuote>
+          </Fit>
+          <Fit>
+            <BlockQuote size={8} textColor="primary">Kafka when used as the data backbone of a company allows future adaptations by abstracting communications between application into a more reactive style approach</BlockQuote>
+          </Fit>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary" textColor="tertiary">
-          <Heading size={4} lineHeight={2} textColor="tertiary" caps>Advantages of Kafka</Heading>
-
-          <Heading size={8} lineHeight={2} textColor="secondary">Highly Scalable</Heading>
-          <Text size={8} fit lineHeight={1} textColor="secondary">Kafka replicates data and is able to support multiple subscribers. Additionally, it automatically balances consumers in the event of failure. That means that it’s more reliable than similar messaging services available.</Text>
-
-          <Heading size={8} lineHeight={2} textColor="secondary">Highly Durable</Heading>
-          <Text size={8} fit lineHeight={1} textColor="secondary">Kafka persists the messages on the disks, which provides intra-cluster replication. This makes for a highly durable messaging system.</Text>
-
-          <Heading size={8} lineHeight={2} textColor="secondary">Highly Reliable</Heading>
-          <Text size={8} fit lineHeight={1} textColor="secondary">Kafka is a distributed system, which is able to be scaled quickly and easily without incurring any downtime.</Text>
-
-          <Heading size={8} lineHeight={2} textColor="secondary">Offers High Performance</Heading>
-          <Text size={8} fit lineHeight={1} textColor="secondary">Kafka delivers high throughput for both publishing and subscribing, utilizing disk structures that are capable of offering constant levels of performance, even when dealing with many terabytes of stored messages.</Text>
+          <Heading size={2} lineHeight={2} textColor="tertiary" fit>Advantages of Kafka</Heading>
+          <Appear fid="1">
+            <Heading size={20} lineHeight={2} textColor="secondary">Highly Scalable</Heading>
+          </Appear>
+          <Appear fid="2">
+            <Text size={8} fit lineHeight={1} textColor="secondary">Kafka replicates data and is able to support multiple subscribers. Additionally, it automatically balances consumers in the event of failure. That means that it’s more reliable than similar messaging services available.</Text>
+          </Appear>
+          <Appear fid="1">
+            <Heading size={8} lineHeight={2} textColor="secondary">Highly Durable</Heading>
+          </Appear>
+          <Appear fid="2">
+            <Text size={8} fit lineHeight={1} textColor="secondary">Kafka persists the messages on the disks, which provides intra-cluster replication. This makes for a highly durable messaging system.</Text>
+          </Appear>
+          <Appear fid="1">
+            <Heading size={8} lineHeight={2} textColor="secondary">Highly Reliable</Heading>
+          </Appear>
+          <Appear fid="2">
+            <Text size={8} fit lineHeight={1} textColor="secondary">Kafka is a distributed system, which is able to be scaled quickly and easily without incurring any downtime.</Text>
+          </Appear>
+          <Appear fid="1">
+            <Heading size={8} lineHeight={2} textColor="secondary">Offers High Performance</Heading>
+          </Appear>
+          <Appear fid="2">
+            <Text size={8} fit lineHeight={1} textColor="secondary">Kafka delivers high throughput for both publishing and subscribing, utilizing disk structures that are capable of offering constant levels of performance, even when dealing with many terabytes of stored messages.</Text>
+          </Appear>
+      </Slide>
+        <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
+          <Heading size={2} textColor="tertiary">KafkaConsumer Concepts</Heading>
+          <Fit>
+            <Heading size={8} fit>Indevidual consumers</Heading>
+            <Image width="60%" src={images.consumers_nongroup}/>
+          </Fit>
+          <Fit>
+            <Heading size={8} fit>Grouped consumers</Heading>
+            <Image width="60%" src={images.consumers_group}/>
+          </Fit>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
-          <Heading size={5} textColor="tertiary">KafkaConsumer Concepts</Heading>
-          <Heading size={8} fit>Indevidual consumers</Heading>
-          <Image width="40%" src={images.consumers_nongroup}/>
-          <Heading size={8} fit>Grouped consumers</Heading>
-          <Image width="40%" src={images.consumers_group}/>
-        </Slide>
-        <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
-          <Heading size={5} textColor="tertiary">KafkaConsumer Concepts cont....</Heading>
-          <Heading size={8} fit>Multiple Groups consumers</Heading>
-          <Image height="200" src={images.consumers_group_multi}/>
-          <Heading size={8} fit>Parellel consumption limited by partitions</Heading>
-          <Image height="200" src={images.consumers_group_mtpc}/>
+          <Heading size={2} textColor="tertiary">KafkaConsumer Concepts cont....</Heading>
+          <Fit>
+            <Heading size={8} fit>Multiple Groups consumers</Heading>
+            <Image widht="60%" src={images.consumers_group_multi}/>
+          </Fit>
+          <Fit>
+            <Heading size={8} fit>Parellel consumption limited by partitions</Heading>
+            <Image width="60%" src={images.consumers_group_mtpc}/>
+          </Fit>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
-          <Heading size={5} textColor="tertiary">Kafka e2e</Heading>
+          <Heading size={2} textColor="tertiary">Kafka diagram</Heading>
           <Image height="800" src={images.kafka_e2e}/>
         </Slide>
 
-        <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
+        <Slide transition={["fade"]} bgColor="secondary" textColor="secondary">
+          <Appear fid="1">
             <Heading size={5} textColor="tertiary">Example producer code</Heading>
+          </Appear>
+          <Appear fid="2">
             <CodePane lang="javascript" source={producerJavaCode}/>
+          </Appear>
+          <Appear fid="3">
             <Heading size={5} textColor="tertiary">Example consumer code</Heading>
+          </Appear>
+          <Appear fid="4">
             <CodePane lang="javascript" source={consumerJavaCode}/>
+          </Appear>
         </Slide>
 
-        <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
+        <Slide transition={["fade"]} bgColor="secondary" textColor="secondary">
+          <Appear fid="1">
             <Heading size={5} textColor="tertiary">Basic producer config</Heading>
+          </Appear>
+          <Appear fid="2">
             <CodePane lang="javascript" source={producerProps}/>
+          </Appear>
+          <Appear fid="3">
             <Heading size={5} textColor="tertiary">Basic consumer config</Heading>
+          </Appear>
+          <Appear fid="4">
             <CodePane lang="javascript" source={consumerProps}/>
+          </Appear>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
-            <Heading size={4} textColor="tertiary">Further reading</Heading>
+            <Heading size={2} textColor="tertiary">Further reading</Heading>
             <List>
               <ListItem><Link href="https://kafka.apache.org/">Kafka home</Link></ListItem>
               <ListItem><Link href="https://www.alooma.com/live">Live Kafka data visualisation</Link></ListItem>
