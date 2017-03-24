@@ -134,7 +134,15 @@ export default class Presentation extends React.Component {
           <Appear fid="2">
             <Text size={8} fit lineHeight={1} textColor="secondary">Kafka delivers high throughput for both publishing and subscribing, utilizing disk structures that are capable of offering constant levels of performance, even when dealing with many terabytes of stored messages.</Text>
           </Appear>
-      </Slide>
+        </Slide>
+
+        <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
+          <Heading size={2} textColor="tertiary">Kafka diagram</Heading>
+          <Appear fid="1">
+            <Image height="600" src={images.kafka_e2e}/>
+          </Appear>
+        </Slide>
+
         <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
           <Heading size={2} lineHeight={2} textColor="tertiary">Consumers</Heading>
           <Layout>
@@ -142,7 +150,7 @@ export default class Presentation extends React.Component {
               <Heading size={8} fill>Indevidual consumers</Heading>
             </Layout>
             <Fill>
-              <Image width="40%" src={images.consumers_nongroup}/>
+              <Image width="60%" src={images.consumers_nongroup}/>
             </Fill>
           </Layout>
           <Layout>
@@ -150,7 +158,7 @@ export default class Presentation extends React.Component {
               <Heading size={8} fill>Grouped consumers</Heading>
             </Layout>
             <Fill>
-              <Image width="40%" src={images.consumers_group}/>
+              <Image width="60%" src={images.consumers_group}/>
             </Fill>
           </Layout>
         </Slide>
@@ -161,22 +169,17 @@ export default class Presentation extends React.Component {
               <Heading size={8} fit>Multiple Groups consumers</Heading>
             </Layout>
             <Fill>
-              <Image width="40%" src={images.consumers_group_multi}/>
+              <Image width="45%" src={images.consumers_group_multi}/>
             </Fill>
           </Layout>
           <Layout>
             <Layout>
-              <Heading size={8} fit>Parellel consumption limited by partitions</Heading>
+              <Heading size={8} fit>Parallel consumption limited by partitions</Heading>
             </Layout>
             <Fill>
-              <Image width="40%" src={images.consumers_group_mtpc}/>
+              <Image width="45%" src={images.consumers_group_mtpc}/>
             </Fill>
           </Layout>
-        </Slide>
-
-        <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
-          <Heading size={2} textColor="tertiary">Kafka diagram</Heading>
-          <Image height="600" src={images.kafka_e2e}/>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="secondary" textColor="secondary">
@@ -219,8 +222,10 @@ export default class Presentation extends React.Component {
               <ListItem><Link href="https://www.alooma.com/live">Live Kafka data visualisation</Link></ListItem>
               <ListItem><Link href="https://www.youtube.com/watch?v=EiWsPd6JDoo">Kafka explained video</Link></ListItem>
               <ListItem><Link href="https://www.youtube.com/watch?v=udnX21__SuU">Core concepts video</Link></ListItem>
+              <ListItem><Link href="https://www.youtube.com/watch?v=l8V6PkVV1Ec">I Can't Believe It's Not a Queue: Using Kafka with Spring</Link></ListItem>
               <ListItem><Link href="https://github.com/confluentinc/examples">Kafka code examples</Link></ListItem>
               <ListItem><Link href="https://www.confluent.io/blog/introducing-kafka-streams-stream-processing-made-simple/">Kafka streams made simple</Link></ListItem>
+              <ListItem><Link href="https://www.youtube.com/watch?v=V3m6ikfMxOQ">Kafka streams overview video</Link></ListItem>
             </List>
         </Slide>
 
