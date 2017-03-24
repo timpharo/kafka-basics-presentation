@@ -88,27 +88,30 @@ export default class Presentation extends React.Component {
 
         <Slide transition={["fade"]} bgColor="black">
           <Heading size={2} textColor="tertiary">Again..... What is Kafka???</Heading>
-          <List textColor="primary">
-            <ListItem><Text textColor="primary">It is a system that lets you publish and subscribe to streams of records. In this respect it is similar to a message queue or enterprise messaging system.</Text></ListItem>
-            <ListItem><Text textColor="primary">It is a system that lets you store streams of records in a fault-tolerant way.</Text></ListItem>
-            <ListItem><Text textColor="primary">It is a system that lets you process streams of records as they occur (Real time).</Text></ListItem>
-          </List>
-
+          <Layout>
+              <BlockQuote textColor="primary">It is a system that lets you publish and subscribe to streams of records. In this respect it is similar to a message queue or enterprise messaging system.</BlockQuote>
+          </Layout>
+          <Layout>
+              <BlockQuote textColor="primary">It is a system that lets you store streams of records in a fault-tolerant way.</BlockQuote>
+          </Layout>
+          <Layout>
+              <BlockQuote textColor="primary">It is a system that lets you process streams of records as they occur (Real time).</BlockQuote>
+          </Layout>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="tertiary">
-          <Heading size={2} textColor="secondary" fit>What is Kafka good for?</Heading>
-          <Fit>
+          <Heading size={5} textColor="secondary" fit>What is Kafka good for?</Heading>
+          <Layout>
             <BlockQuote size={8} textColor="primary">Kafka is good at real time data propogation and storage</BlockQuote>
-          </Fit>
-          <Fit>
+          </Layout>
+          <Layout>
             <BlockQuote size={8} textColor="primary">Kafka when used as the data backbone of a company allows future adaptations by abstracting communications between application into a more reactive style approach</BlockQuote>
-          </Fit>
+          </Layout>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary" textColor="tertiary">
-          <Heading size={2} lineHeight={2} textColor="tertiary" fit>Advantages of Kafka</Heading>
+          <Heading size={2} lineHeight={1} textColor="tertiary" fit>Advantages of Kafka</Heading>
           <Appear fid="1">
-            <Heading size={20} lineHeight={2} textColor="secondary">Highly Scalable</Heading>
+            <Heading size={8} lineHeight={2} textColor="secondary">Highly Scalable</Heading>
           </Appear>
           <Appear fid="2">
             <Text size={8} fit lineHeight={1} textColor="secondary">Kafka replicates data and is able to support multiple subscribers. Additionally, it automatically balances consumers in the event of failure. That means that it’s more reliable than similar messaging services available.</Text>
@@ -133,31 +136,47 @@ export default class Presentation extends React.Component {
           </Appear>
       </Slide>
         <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
-          <Heading size={2} textColor="tertiary">KafkaConsumer Concepts</Heading>
-          <Fit>
-            <Heading size={8} fit>Indevidual consumers</Heading>
-            <Image width="60%" src={images.consumers_nongroup}/>
-          </Fit>
-          <Fit>
-            <Heading size={8} fit>Grouped consumers</Heading>
-            <Image width="60%" src={images.consumers_group}/>
-          </Fit>
+          <Heading size={2} lineHeight={2} textColor="tertiary">Consumers</Heading>
+          <Layout>
+            <Layout>
+              <Heading size={8} fill>Indevidual consumers</Heading>
+            </Layout>
+            <Fill>
+              <Image width="40%" src={images.consumers_nongroup}/>
+            </Fill>
+          </Layout>
+          <Layout>
+            <Layout>
+              <Heading size={8} fill>Grouped consumers</Heading>
+            </Layout>
+            <Fill>
+              <Image width="40%" src={images.consumers_group}/>
+            </Fill>
+          </Layout>
         </Slide>
         <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
-          <Heading size={2} textColor="tertiary">KafkaConsumer Concepts cont....</Heading>
-          <Fit>
-            <Heading size={8} fit>Multiple Groups consumers</Heading>
-            <Image widht="60%" src={images.consumers_group_multi}/>
-          </Fit>
-          <Fit>
-            <Heading size={8} fit>Parellel consumption limited by partitions</Heading>
-            <Image width="60%" src={images.consumers_group_mtpc}/>
-          </Fit>
+          <Heading size={2} lineHeight={2} textColor="tertiary">Consumers cont....</Heading>
+          <Layout>
+            <Layout>
+              <Heading size={8} fit>Multiple Groups consumers</Heading>
+            </Layout>
+            <Fill>
+              <Image width="40%" src={images.consumers_group_multi}/>
+            </Fill>
+          </Layout>
+          <Layout>
+            <Layout>
+              <Heading size={8} fit>Parellel consumption limited by partitions</Heading>
+            </Layout>
+            <Fill>
+              <Image width="40%" src={images.consumers_group_mtpc}/>
+            </Fill>
+          </Layout>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
           <Heading size={2} textColor="tertiary">Kafka diagram</Heading>
-          <Image height="800" src={images.kafka_e2e}/>
+          <Image height="600" src={images.kafka_e2e}/>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="secondary" textColor="secondary">
@@ -188,6 +207,9 @@ export default class Presentation extends React.Component {
           <Appear fid="4">
             <CodePane lang="javascript" source={consumerProps}/>
           </Appear>
+        </Slide>
+        <Slide transition={["fade"]} bgColor="secondary" textColor="secondary">
+            <Heading size={2} textColor="tertiary">Real usage example?</Heading>
         </Slide>
 
         <Slide transition={["fade"]} bgColor="primary" textColor="secondary">
